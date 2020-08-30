@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Pagination } from "@material-ui/lab";
+import Header from "./components/Header";
+import Products from "./components/Products";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {DataProvider} from './components/DataProvider';
+import Details from "./components/Details";
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <div className="App">
+        
+        <Router>
+          <Header />
+          
+          <section>
+            <Switch>
+              <Route exact path="/products">
+                <Products />
+              </Route>
+
+              <Route path="/products/:id">
+                <Details />
+              </Route>
+            </Switch>
+          </section>
+          {/* <div className="pagination">
+            <Pagination count={10} color="secondary" />
+          </div> */}
+        </Router>
+      </div>
+      <ScrollTop />
+    </DataProvider>
+
   );
 }
 

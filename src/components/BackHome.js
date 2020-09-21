@@ -8,12 +8,12 @@ export default function BackHome() {
     // go to back
     const history = createBrowserHistory();
     const backToHome = () => {
-        history.goBack();
+        history.goBack(-1);
     }
     return (
         <div className="back-to-product" >
             <Button variant="outlined" color="primary" startIcon={<Back />} onClick={backToHome}>
-                Tiếp tục mua sắm
+                Quay lại
             </Button>
         </div>
     )

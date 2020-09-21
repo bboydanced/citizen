@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {DataProvider} from './components/DataProvider';
 import Details from "./components/Details";
 import ScrollTop from "./components/ScrollTop";
+import NotFound404 from "./components/NotFound404";
 
 function App() {
   return (
@@ -17,12 +18,18 @@ function App() {
           
           <section>
             <Switch>
+              <Route exact path="/">
+                <Products />
+              </Route>
               <Route exact path="/products">
                 <Products />
               </Route>
-
-              <Route path="/products/:id">
+              <Route exact path="/products/:id">
                 <Details />
+              </Route>
+            
+              <Route component={NotFound404}>
+
               </Route>
             </Switch>
           </section>

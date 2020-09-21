@@ -38,12 +38,10 @@ export default function Details(props) {
                         ref={imgDiv}
                     >
                     </div>
-                    
                     <div className="box-detail">
                         <h3 title={product.title} className="title-detail">
                             {product.title}
                         </h3>
-                        
                         <Colors colors={product.colors} />
                         <Sizes sizes={product.sizes}/>
                         <h4 className="price-detail">$ {product.price}</h4>

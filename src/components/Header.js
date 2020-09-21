@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Bars from './svg/bars-solid.svg';
 import Close from './svg/window-close-solid.svg';
 import {Link} from 'react-router-dom';
 // import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { DataContext } from './DataProvider';
 
 export default function Header() {
     const [menu, setMenu] = useState(false);
+    const value = useContext(DataContext);
+    const [cart] = value.cart;
 
     const styleMenu = {
         left : menu ? 0 : "-100%"
@@ -31,7 +34,7 @@ export default function Header() {
                     {/* <MenuOpenIcon color="secondary" alt="menu" fontSize="large" onClick={() => setMenu(!menu)}/> */}
                 </div>
                 <div className="cart-icon">
-                    <span className="quantity-shopping">0</span>
+                    <span className="quantity-shopping">{cart.length}</span>
                     <Link to="/cart">
                         <ShoppingCartIcon fontSize="large" color="inherit"/>
                     </Link> 

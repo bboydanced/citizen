@@ -8,7 +8,7 @@ export default function BackHome() {
     // go to back
     const history = createBrowserHistory();
     const backToHome = () => {
-        history.goBack(-1);
+        history.goBack();
     }
     return (
         <div className="back-to-product" >

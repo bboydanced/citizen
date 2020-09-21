@@ -7,15 +7,16 @@ import {DataProvider} from './components/DataProvider';
 import Details from "./components/Details";
 import ScrollTop from "./components/ScrollTop";
 import NotFound404 from "./components/NotFound404";
+import Cart from "./components/Cart";
+import About from "./components/About";
+import Login from "./components/Login";
 
 function App() {
   return (
     <DataProvider>
       <div className="App">
-        
         <Router>
           <Header />
-          
           <section>
             <Switch>
               <Route exact path="/">
@@ -27,9 +28,16 @@ function App() {
               <Route exact path="/products/:id">
                 <Details />
               </Route>
-            
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
               <Route component={NotFound404}>
-
               </Route>
             </Switch>
           </section>

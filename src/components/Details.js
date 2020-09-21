@@ -1,5 +1,5 @@
 import React, {useState, useContext, useRef} from 'react'
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import { Button } from '@material-ui/core';
 import { DataContext } from './DataProvider';
@@ -10,15 +10,21 @@ import BackHome from './BackHome';
 
 
 export default function Details(props) {
+    // id product
     const {id} = useParams();
-
-    const [products] = useContext(DataContext);
+    // data
+    const value = useContext(DataContext)
+    const [products] = value.products;
+    const addToCart = value.addToCart;
+    //get img from data
     const [index, setIndex] = useState(0);
     const imgDiv = useRef();
 
     const detail = products.filter((product, index) => {
         return product._id === id ;
     })
+
+    // zoom in img products
     const handleMouseMove = (e) => {
         const {left, top, width, height } = e.target.getBoundingClientRect();
         const x = (e.pageX - left) / width * 100; 
@@ -48,9 +54,11 @@ export default function Details(props) {
                         <p>{product.description}</p>
                         <p>{product.content}</p>
                         <DetailsThumnail images={product.images} setIndex={setIndex} />
-                        <Button variant="contained" color="secondary" startIcon={<AddBoxIcon />}>
-                            Giỏ hàng
-                        </Button>  
+                        <Link to="/cart" onClick={() =>addToCart(product._id)}>
+                            <Button variant="contained" color="primary" startIcon={<AddBoxIcon /> } >
+                                Giỏ hàng
+                            </Button>  
+                        </Link>
                     </div>
                 </div>
             ))}

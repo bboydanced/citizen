@@ -60,17 +60,84 @@ ul li {
   margin-right: 15px;
 }
 .cart-icon span {
-  background: #f50057;
+  background: lightseagreen;
   color: white;
 
   position: absolute;
   top: -10px;
-  right: -15px;
+  right: -13px;
   font-size: 12px;
-  padding: 5px;
-  border-radius: 10px;
-}
+  padding: 1px 7px;
+  border:1px solid #f5f5f5;
+  border-radius:40%;
 
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+.img-container-cart{
+  max-width: 165px;
+  width: 100%;
+  min-height: 200px;
+  height: 100%;
+  margin: 10px 50px;
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cart {
+  position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+}
+.cart-count {
+  margin: 0 20px;
+}
+.box-detail-cart{
+  width: 60%;
+  margin: auto 0px;
+}
+.box-detail-cart h3 {
+  color : teal;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+.delete {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.delete button {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f50057;
+  cursor: pointer;
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color:white;
+}
+.delete button:hover {
+  color: #707070;
+}
+.payment {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment a {
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+}
+.payment a:hover {
+  color: rgb(0, 189, 189);
+}
 /* ----Products------ */
 .products {
   width: 100%;
@@ -109,6 +176,10 @@ ul li {
 .card .box p {
   margin: 10px 0;
   line-height: 1.5;
+  display:-webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .card .box h4 {
   color:  #f50057;
@@ -170,12 +241,16 @@ ul li {
 .size-detail button {
   margin-right:15px; 
 }
-.box-detail h4 {
+.price-detail {
   color:  #f50057;
+  padding: 10px 0 ;
 }
 .box-detail p {
   line-height: 1.5;
   opacity: 0.8;
+}
+.box-detail Link {
+  color: white;
 }
 .thumnail-detail {
   display: flex;

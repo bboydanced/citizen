@@ -3,10 +3,12 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import { Button } from "@material-ui/core";
 import { DataContext } from "./DataProvider";
 import { Link } from "react-router-dom";
+import SimplePopover from './Popover';
 
 export default function Products() {
-    const [products] = useContext(DataContext);
-
+    const value = useContext(DataContext)
+    const [products] = value.products;
+    const addToCart = value.addToCart;
     return (
       <div className="products">
         {
@@ -23,9 +25,14 @@ export default function Products() {
                         <p>{product.description}</p>
                         <h5 className="product-sales">$ {product.price + 200 }</h5>
                         <h4>$ {product.price}</h4>
-                        <Button variant="contained" color="primary" startIcon={<AddBoxIcon />}>
+                        <Button onClick={() => addToCart(product._id) } 
+                                variant="contained" 
+                                color="primary" 
+                                startIcon={<AddBoxIcon />}  
+                                >
                             Add to Card
                         </Button>
+                        
                     </div>
                 </div>
             ))

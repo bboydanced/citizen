@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination } from "@material-ui/lab";
+// import { Pagination } from "@material-ui/lab";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

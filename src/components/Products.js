@@ -3,7 +3,6 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import { Button } from "@material-ui/core";
 import { DataContext } from "./DataProvider";
 import { Link } from "react-router-dom";
-import SimplePopover from './Popover';
 
 export default function Products() {
     const value = useContext(DataContext)
